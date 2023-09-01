@@ -1,7 +1,7 @@
 hook.Add("HUDPaint", "ESP", function() -- https://imgur.com/6ZxGNm5
     for _, p in pairs(player.GetAll()) do
-		if (p:Alive()) and p ~= LocalPlayer() then
-			local feetpos = p:GetPos() 
+	if (p:Alive()) and p ~= LocalPlayer() then
+	    local feetpos = p:GetPos() 
             local headpos = feetpos + Vector(0,0,75)
             feetpos = feetpos:ToScreen() 
             headpos = headpos:ToScreen()
@@ -13,10 +13,10 @@ hook.Add("HUDPaint", "ESP", function() -- https://imgur.com/6ZxGNm5
                 local w = math.floor(width)
                 local h = math.floor(height)
                 local width, height = surface.GetTextSize(p:Name())
-			    surface.SetTextColor( 255, 255, 255, 232) 	
-			    surface.SetTextPos(math.floor(x + w / 2 - (width / 2)), y - height )
-			    surface.SetFont( "Default" ) 
-			    surface.DrawText( p:Name() ) -- name
+		surface.SetTextColor( 255, 255, 255, 232) 	
+		surface.SetTextPos(math.floor(x + w / 2 - (width / 2)), y - height )
+		surface.SetFont( "Default" ) 
+		surface.DrawText( p:Name() ) -- name
                 surface.SetDrawColor( 255,255,255,255 )
                 surface.DrawOutlinedRect( x, y, w, h, 1 ) -- box
                 local health = p:Health() -- healthboar
@@ -27,6 +27,6 @@ hook.Add("HUDPaint", "ESP", function() -- https://imgur.com/6ZxGNm5
                 surface.SetDrawColor( 0,0,0,255 )
                 surface.DrawRect(x - 6, y, 3, h - healthBarSize )
             end
-		end 
-	end
+	end 
+    end
 end)
